@@ -1,0 +1,80 @@
+/* POPPINS FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif !important; 
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    transition: opacity 0.8s ease, transform 0.6s ease;
+}
+
+
+.navbar.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+#topImage {
+    width: 100%;
+    height: 620px;
+    object-fit: cover;
+}
+
+.content {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between grid items */
+    margin-top: 60px;
+    padding: 20px;
+    font-size: 1.1em;
+}
+
+.section {
+    height: 500px;
+    background: #f4f4f4;
+    margin: 20px 0;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+
+    #topImage{
+        width: 100%;
+        height: 530px;
+        object-fit: cover;
+    }
+    .navbar {
+        font-size: 1em; /* Smaller font size for mobile */
+        padding: 15px;  /* Add more padding for mobile */
+        transition: opacity 1s ease, transform 1s ease; /* Slower transition for mobile */
+    }
+
+    .navbar.hidden {
+        opacity: 0.7; /* Slightly transparent navbar on mobile */
+        transform: translateY(-30px); /* More vertical distance on mobile */
+    }
+
+    /* Optional: Make the navbar hide completely when the top image is 100% visible */
+    .content {
+        padding-top: 70px; /* Adjust content padding if necessary */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        font-size: 0.9em; /* Even smaller font for very small screens */
+    }
+}
