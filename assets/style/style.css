@@ -5,19 +5,44 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif !important; 
+    font-family: 'Poppins', sans-serif !important;
 }
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.navbar ul li {
+    list-style-type: none;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #000000;
+    padding-bottom: 15px;
+    margin: 0 25px;
+}
+
+.link:hover,
+.active {
+    border-bottom: 2px solid #665858;
+}
+
 
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    height: 70px;
+    padding: 15px;
     text-align: center;
     font-size: 1.2em;
     transition: opacity 0.8s ease, transform 0.6s ease;
+    box-shadow: 2px 3px 8px black;
 }
 
 
@@ -29,13 +54,16 @@
 #topImage {
     width: 100%;
     height: 620px;
-    object-fit: cover;
+    object-fit: inherit;
 }
 
 .content {
-    display: grid; /* Enable grid layout */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Space between grid items */
+    display: grid;
+    /* Enable grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+    /* Space between grid items */
     margin-top: 60px;
     padding: 20px;
     font-size: 1.1em;
@@ -49,32 +77,62 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 768px) {
-
-    #topImage{
-        width: 100%;
-        height: 530px;
-        object-fit: cover;
-    }
-    .navbar {
-        font-size: 1em; /* Smaller font size for mobile */
-        padding: 15px;  /* Add more padding for mobile */
-        transition: opacity 1s ease, transform 1s ease; /* Slower transition for mobile */
-    }
-
-    .navbar.hidden {
-        opacity: 0.7; /* Slightly transparent navbar on mobile */
-        transform: translateY(-30px); /* More vertical distance on mobile */
-    }
-
-    /* Optional: Make the navbar hide completely when the top image is 100% visible */
-    .content {
-        padding-top: 70px; /* Adjust content padding if necessary */
-    }
+.TabOpen {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    font-size: 1.5em;
 }
 
-@media (max-width: 480px) {
-    .navbar {
-        font-size: 0.9em; /* Even smaller font for very small screens */
-    }
+.TabClose {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    font-size: 1.4em;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    /* Start hidden off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    transition: left 0.5s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+    z-index: 5;
+    /* Ensure it is above other content */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #000000;
+    padding-bottom: 15px;
+    margin: 0 25px;
+}
+
+/* Sidebar Open */
+.sidebar.open {
+    left: 0;
+    /* Slide the sidebar in */
 }

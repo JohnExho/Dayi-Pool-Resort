@@ -19,9 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // If the image is more visible than the threshold, hide the navbar
             if (visibilityRatio >= threshold) {
+                TabOpen.style.pointerEvents = 'none';
                 navbar.style.opacity = 0; // Hide navbar
                 navbar.style.transform = 'translateY(-20px)'; // Slide up
             } else {
+                TabOpen.style.pointerEvents = 'auto';
                 navbar.style.opacity = 1; // Show navbar
                 navbar.style.transform = 'translateY(0)'; // Reset position
             }
@@ -32,3 +34,17 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(topImage);
 });
 
+const TabOpen = document.querySelector('.TabOpen');
+const sidebar = document.querySelector('.sidebar');
+const navbar = document.querySelector('.navbar');
+const TabClose = document.querySelector('.TabClose');
+
+TabOpen.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    navbar.style.transform = 'translateY(-55px)'; 
+});
+
+TabClose.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    navbar.style.transform = 'translateY(0)';
+});
